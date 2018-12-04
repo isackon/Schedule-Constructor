@@ -1,3 +1,20 @@
-<p>
-  subjects works!
-</p>
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSavePost(postForm)" #postForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="subject"
+        [ngModel]="subject?.subjectName"
+        required
+        placeholder="Subject Name"
+        #title="ngModel">
+      <mat-error *ngIf="subjectName.invalid">Please enter a subject name.</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Save Subject</button>
+  </form>
+</mat-card>
