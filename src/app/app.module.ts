@@ -12,8 +12,8 @@ import { AngularMaterialModule } from './angular-material.module';
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 
-
 import { AuthInterceptor } from './auth/auth-interceptor';
+import { SubjectsModule } from './subjects/subjects.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,7 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     AngularMaterialModule,
     AppRoutingModule,
     HttpClientModule,
+    SubjectsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
