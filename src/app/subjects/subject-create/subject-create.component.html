@@ -8,3 +8,15 @@
     <button mat-raised-button color="accent" type="submit">Save Post</button>
   </form>
 </mat-card>
+
+<mat-accordion multi="true" *ngIf="!isLoading">
+  <mat-expansion-panel *ngFor="let subject of subjects">
+    <mat-expansion-panel-header>
+      {{ subject.subjectName }}
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+

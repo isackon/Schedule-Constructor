@@ -1,33 +1,28 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { SubjectsService } from './subjects.service';
-import { SubjectModel } from './subject.model';
-import { AuthService } from '../auth/auth.service';
+import { SubjectsService } from '../subjects.service';
+import { SubjectModel } from '../subject.model';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
-  selector: 'app-subjects',
-  templateUrl: './subjects.component.html',
-  styleUrls: ['./subjects.component.css']
+  selector: 'app-subject-create',
+  templateUrl: './subject-create.component.html',
+  styleUrls: ['./subject-create.component.css']
 })
-export class SubjectsComponent implements OnInit, OnDestroy {
-  enteredSubjectName = '';
-  // enteredContent = "";
+export class SubjectCreateComponent implements OnInit, OnDestroy {
   subject: SubjectModel;
   isLoading = false;
   form: FormGroup;
-  private mode = 'create';
-  private subjectId: string;
+  // private subjectId: string;
   private authStatusSub: Subscription;
-  private postId = null;
 
   constructor(
     public subjectsService: SubjectsService,
     public route: ActivatedRoute,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.authStatusSub = this.authService
@@ -48,9 +43,6 @@ export class SubjectsComponent implements OnInit, OnDestroy {
     }
     this.isLoading = true;
     this.subjectsService.addSubject(this.form.value.subjectName);
-    // this.subjectsService.addSubject(
-    //   this.form.value.subjectName
-    // );
     this.form.reset();
   }
 

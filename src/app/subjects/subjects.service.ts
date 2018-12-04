@@ -64,7 +64,6 @@ export class SubjectsService {
         // this.subjects.push(subject);
         // this.subjectsUpdated.next([...this.subjects]);
         this.router.navigate(['/']);
-        console.log('hi');
       });
   }
 
