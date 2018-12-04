@@ -28,7 +28,7 @@ exports.createAdmin = (req, res, next) => {
 
 exports.adminLogin = (req, res, next) => {
   let fetchedAdmin;
-  Admin.findOne({ email: req.body.email })
+  Admin.findOne({ login: req.body.login })
     .then(admin => {
       if (!admin) {
         return res.status(401).json({
@@ -36,7 +36,7 @@ exports.adminLogin = (req, res, next) => {
         });
       }
       fetchedAdmin = admin;
-      return bcrypt.compare(req.body.password, user.password);
+      return bcrypt.compare(req.body.password, admin.password);
     })
     .then(result => {
       if (!result) {
@@ -52,7 +52,7 @@ exports.adminLogin = (req, res, next) => {
       res.status(200).json({
         token: token,
         expiresIn: 3600,
-        userId: fetchedAdmin._id
+        adminId: fetchedAdmin._id
       });
     })
     .catch(err => {
