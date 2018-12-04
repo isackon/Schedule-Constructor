@@ -1,13 +1,11 @@
 <mat-spinner *ngIf="isLoading"></mat-spinner>
-<mat-accordion multi="true" *ngIf="!isLoading">
-  <mat-expansion-panel *ngFor="let subject of subjects">
-    <mat-expansion-panel-header>
-      {{ subject.subjectName }}
-    </mat-expansion-panel-header>
-    <mat-action-row>
-      <!-- <a mat-button color="primary" [routerLink]="['/edit', subject.id]">EDIT</a> -->
-      <button mat-button color="warn" (click)="onDelete(subject.id)">DELETE</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-</mat-accordion>
+<mat-list *ngIf="!isLoading">
+  <mat-list-item *ngFor="let subject of subjects">
+    <p>{{ subject.subjectName }}</p>
+    <span class="spacer"></span>
+    <button mat-button color="warn" (click)="onDelete(subject.id)">DELETE</button>
+    <mat-divider [inset]="true"></mat-divider>
+  </mat-list-item>
+</mat-list>
 <p class="info-text mat-body-1" *ngIf="subjects.length <= 0 && !isLoading">No subjects added yet!</p>
+
