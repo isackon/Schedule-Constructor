@@ -1,26 +1,25 @@
 const Subject = require("../models/subject");
 
 exports.createSubject = (req, res, next) => {
-  const url = req.protocol + "://" + req.get("host");
   const subject = new Subject({
     subjectName: req.body.subjectName
   });
-  subject
-    .save()
-    .then(createdSubject => {
-      res.status(201).json({
-        message: "Subject added successfully",
-        subject: {
-          ...createdSubject,
-          id: createdSubject._id
-        }
-      });
-    })
-    .catch(error => {
-      res.status(500).json({
-        message: "Creating a subject failed!"
-      });
+  subject.save().then(createdSubject => {
+    console.log(createdSubject);
+    res.status(201).json({
+      message: "Subject added successfully",
+      subjects: {
+        ...createdSubject,
+        id: createdSubject._id
+      }
+      // subjectName: createdSubject.subjectName
     });
+  })
+  .catch(error => {
+    res.status(500).json({
+      message: "Creating a subject failed!"
+    });
+  });
 };
 
 exports.updateSubject = (req, res, next) => {
@@ -43,26 +42,13 @@ exports.updateSubject = (req, res, next) => {
     });
 };
 
-exports.getSubject = (req, res, next) => {
-  // const pageSize = +req.query.pagesize;
-  // const currentPage = +req.query.page;
-  const postQuery = Post.find();
-  let fetchedSubjects;
-  // if (pageSize && currentPage) {
-  //   postQuery.skip(pageSize * (currentPage - 1)).limit(pageSize);
-  // }
-  postQuery
-    .then(documents => {
-      fetchedSubjects = documents;
-      // return Post.count();
-    })
-    .then(count => {
-      res.status(200).json({
-        message: "Subjects fetched successfully!",
-        subjects: fetchedSubjects,
-        // maxPosts: count
-      });
-    })
+exports.getSubjects = (req, res, next) => {
+  Subject.find().then(documents => {
+    res.status(200).json({
+      message: "Subjects fetched successfully!",
+      subjects: documents
+    });
+  })
     .catch(error => {
       res.status(500).json({
         message: "Fetching subjects failed!"
@@ -71,14 +57,13 @@ exports.getSubject = (req, res, next) => {
 };
 
 exports.getSubject = (req, res, next) => {
-  Subject.findById(req.params.id)
-    .then(subject => {
-      if (subject) {
-        res.status(200).json(subject);
-      } else {
-        res.status(404).json({ message: "Subject not found!" });
-      }
-    })
+  Subject.findById(req.params.id).then(subject => {
+    if (subject) {
+      res.status(200).json(subject);
+    } else {
+      res.status(404).json({ message: "Subject not found!" });
+    }
+  })
     .catch(error => {
       res.status(500).json({
         message: "Fetching subject failed!"
@@ -98,7 +83,7 @@ exports.deleteSubject = (req, res, next) => {
     })
     .catch(error => {
       res.status(500).json({
-        message: "Deleting posts failed!"
+        message: "Deleting subjects failed!"
       });
     });
 };

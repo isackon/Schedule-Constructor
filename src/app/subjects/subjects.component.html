@@ -1,20 +1,10 @@
 <mat-card>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
-  <form (submit)="onSavePost(postForm)" #postForm="ngForm" *ngIf="!isLoading">
+  <form [formGroup]="form" (submit)="onSaveSubject()" *ngIf="!isLoading">
     <mat-form-field>
-      <input
-        matInput
-        type="text"
-        name="subject"
-        [ngModel]="subject?.subjectName"
-        required
-        placeholder="Subject Name"
-        #title="ngModel">
-      <mat-error *ngIf="subjectName.invalid">Please enter a subject name.</mat-error>
+      <input matInput type="text" formControlName="subjectName" placeholder="Subject Name">
+      <mat-error *ngIf="form.get('subjectName').invalid">Please enter a subject name.</mat-error>
     </mat-form-field>
-    <button
-      mat-raised-button
-      color="accent"
-      type="submit">Save Subject</button>
+    <button mat-raised-button color="accent" type="submit">Save Post</button>
   </form>
 </mat-card>

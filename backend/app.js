@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-// const postsRoutes = require("./routes/posts");
+const subjectsRoutes = require("./routes/subjects");
 const adminRoutes = require("./routes/admin");
 
 const app = express();
@@ -12,7 +12,7 @@ mongoose
   .connect(
     "mongodb+srv://islamsv:" +
     process.env.MONGO_ATLAS_PW +
-    "@cluster0-6pgsu.mongodb.net/ScheduleConstructor?"
+    "@cluster0-6pgsu.mongodb.net/ScheduleConstructor"
   )
   .then(() => {
     console.log("Connected to database!");
@@ -22,7 +22,7 @@ mongoose
   });
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 // app.use("/images", express.static(path.join("backend/images")));
 
 app.use((req, res, next) => {
@@ -38,7 +38,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use("/api/posts", postsRoutes);
+app.use("/api/subjects", subjectsRoutes);
 app.use("/api/admin", adminRoutes);
 
 module.exports = app;

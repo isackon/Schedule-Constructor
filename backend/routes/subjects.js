@@ -1,20 +1,20 @@
 const express = require("express");
 
-const SubjectController = require("../controllers/posts");
+const SubjectController = require("../controllers/subjects");
 
 const checkAuth = require("../middleware/check-auth");
 // const extractFile = require("../middleware/file");
 
 const router = express.Router();
 
-router.post("", checkAuth, SubjectController.createPost);
+router.post("", checkAuth, SubjectController.createSubject);
 
-router.put("/:id", checkAuth, SubjectController.updatePost);
+router.put("/:id", checkAuth, SubjectController.updateSubject);
 
-router.get("", SubjectController.getPosts);
+router.get("", SubjectController.getSubjects);
 
-router.get("/:id", SubjectController.getPost);
+router.get("/:id", SubjectController.getSubject);
 
-router.delete("/:id", checkAuth, SubjectController.deletePost);
+router.delete("/:id", checkAuth, SubjectController.deleteSubject);
 
 module.exports = router;
