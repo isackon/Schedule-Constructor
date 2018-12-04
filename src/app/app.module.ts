@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { SubjectsModule } from './subjects/subjects.module';
+import { TeachersModule } from './teachers/teachers.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SubjectsModule } from './subjects/subjects.module';
     AngularMaterialModule,
     AppRoutingModule,
     HttpClientModule,
-    SubjectsModule
+    SubjectsModule,
+    TeachersModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

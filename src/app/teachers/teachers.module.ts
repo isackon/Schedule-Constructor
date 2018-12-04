@@ -4,9 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from '../angular-material.module';
+import { TeacherCreateComponent } from './teacher-create/teacher-create.component';
+import { TeachersListComponent } from './teachers-list/teachers-list.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [TeacherCreateComponent, TeachersListComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -15,4 +17,4 @@ import { AngularMaterialModule } from '../angular-material.module';
     RouterModule
   ]
 })
-export class SubjectsModule {}
+export class TeachersModule {}

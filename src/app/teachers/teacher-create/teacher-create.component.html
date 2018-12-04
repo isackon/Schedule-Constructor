@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onSaveTeacher()" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput type="text" formControlName="teacherName" placeholder="Teacher Name">
+      <mat-error *ngIf="form.get('teacherName').invalid">Please enter a teacher name.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="teacherDepartment" placeholder="Teacher Department">
+      <mat-error *ngIf="form.get('teacherDepartment').invalid">Please enter a teacher department.</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Save Teacher</button>
+  </form>
+</mat-card>
+
+
+
+
