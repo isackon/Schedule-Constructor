@@ -63,7 +63,7 @@ export class SubjectsService {
         // subject.id = id;
         // this.subjects.push(subject);
         // this.subjectsUpdated.next([...this.subjects]);
-        this.router.navigate(['/']);
+        this.router.navigate(['/subjects/list']);
       });
   }
 
