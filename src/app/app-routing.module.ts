@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 // import { PostCreateComponent } from "./posts/post-create/post-create.component";
 // import { AuthGuard } from "./auth/auth.guard";
 import { SubjectCreateComponent } from './subjects/subject-create/subject-create.component';
+import { SubjectsListComponent } from './subjects/subjects-list/subjects-list.component';
 
 const routes: Routes = [
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
-  { path: 'subjects', component: SubjectCreateComponent },
+  { path: 'subjects/create', component: SubjectCreateComponent },
+  { path: 'subjects/list', component: SubjectsListComponent },
   // { path: "create", component: PostCreateComponent, canActivate: [AuthGuard] },
   // { path: "edit/:postId", component: PostCreateComponent, canActivate: [AuthGuard] },
   // { path: "auth", loadChildren: "./auth/auth.module#AuthModule"}
