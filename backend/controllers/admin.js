@@ -6,9 +6,10 @@ const Admin = require("../models/admin");
 exports.createAdmin = (req, res, next) => {
   bcrypt.hash(req.body.password, 10).then(hash => {
     const admin = new Admin({
-      email: req.body.email,
+      login: req.body.login,
       password: hash
     });
+    console.log(admin);
     admin
       .save()
       .then(result => {

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -39,7 +38,7 @@ export class AuthService {
 
   createAdmin(login: string, password: string) {
     const authData: AuthData = { login: login, password: password };
-    this.http.post(BACKEND_URL + '/signup', authData).subscribe(
+    this.http.post(BACKEND_URL + 'signup', authData).subscribe(
       () => {
         this.router.navigate(['/']);
       },
@@ -53,7 +52,7 @@ export class AuthService {
     const authData: AuthData = { login: login, password: password };
     this.http
       .post<{ token: string; expiresIn: number; adminId: string }>(
-        BACKEND_URL + '/login',
+        BACKEND_URL + 'login',
         authData
       )
       .subscribe(
