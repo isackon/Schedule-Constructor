@@ -7,6 +7,8 @@ import { SubjectCreateComponent } from './subjects/subject-create/subject-create
 import { SubjectsListComponent } from './subjects/subjects-list/subjects-list.component';
 import { TeacherCreateComponent } from './teachers/teacher-create/teacher-create.component';
 import { TeachersListComponent } from './teachers/teachers-list/teachers-list.component';
+import { GradeCreateComponent } from './grades/grade-create/grade-create.component';
+import { GradesListComponent } from './grades/grades-list/grades-list.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
@@ -17,6 +19,9 @@ const routes: Routes = [
   { path: 'teachers/create', component: TeacherCreateComponent, canActivate: [AuthGuard] },
   { path: 'teachers/edit/:teacherId', component: TeacherCreateComponent, canActivate: [AuthGuard] },
   { path: 'teachers/list', component: TeachersListComponent, canActivate: [AuthGuard] },
+  { path: 'grades/create', component: GradeCreateComponent, canActivate: [AuthGuard] },
+  { path: 'grades/edit/:teacherId', component: GradeCreateComponent, canActivate: [AuthGuard] },
+  { path: 'grades/list', component: GradesListComponent, canActivate: [AuthGuard] },
 
   // { path: "create", component: PostCreateComponent, canActivate: [AuthGuard] },
   // { path: "edit/:postId", component: PostCreateComponent, canActivate: [AuthGuard] }
