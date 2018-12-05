@@ -6,6 +6,8 @@ import { Subscription } from 'rxjs';
 import { TeacherModel } from '../teacher.model';
 import { AuthService } from '../../auth/auth.service';
 import { TeachersService } from '../teachers.service';
+import { SubjectModel } from 'src/app/subjects/subject.model';
+import { SubjectsService } from 'src/app/subjects/subjects.service';
 
 @Component({
   selector: 'app-teacher-create',
@@ -16,10 +18,14 @@ export class TeacherCreateComponent implements OnInit, OnDestroy {
   teacher: TeacherModel;
   isLoading = false;
   form: FormGroup;
+  subjects: SubjectModel[] = [];
   // private teacherId: string;
   private authStatusSub: Subscription;
+  private subjectsSub: Subscription;
+
 
   constructor(
+    public subjectsService: SubjectsService,
     public teachersService: TeachersService,
     public route: ActivatedRoute,
     private authService: AuthService) { }
@@ -38,6 +44,14 @@ export class TeacherCreateComponent implements OnInit, OnDestroy {
         validators: [Validators.required]
       }),
     });
+
+    this.subjectsService.getSubjects();
+    this.subjectsSub = this.subjectsService
+    .getSubjectUpdateListener()
+    .subscribe(( subjects: SubjectModel[] ) => {
+      this.isLoading = false;
+      this.subjects = subjects;
+    });
   }
 
   onSaveTeacher() {
@@ -51,6 +65,7 @@ export class TeacherCreateComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.authStatusSub.unsubscribe();
+    this.subjectsSub.unsubscribe();
   }
 
 }

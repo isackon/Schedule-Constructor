@@ -1,3 +1,17 @@
-<p>
-  teachers-list works!
-</p>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="!isLoading">
+  <mat-expansion-panel *ngFor="let subject of subjects">
+    <mat-expansion-panel-header>
+      {{ subject.subjectName }}
+    </mat-expansion-panel-header>
+      <mat-list *ngFor="let teacher of teachers">
+        <mat-list-item *ngIf="subject.subjectName === teacher.teacherDepartment">
+          <p>{{ teacher.teacherName }}</p>
+          <span class="spacer"></span>
+          <button mat-button color="warn" (click)="onDelete(teacher.id)">DELETE</button>
+          <mat-divider [inset]="true"></mat-divider>
+        </mat-list-item>
+      </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-1" *ngIf="teachers.length < 1 !isLoading">No teachers added yet!</p>
