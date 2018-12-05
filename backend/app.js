@@ -43,6 +43,6 @@ app.use((req, res, next) => {
 app.use("/api/admin", adminRoutes);
 app.use("/api/subjects", subjectsRoutes);
 app.use("/api/teachers", teachersRoutes);
-app.use("/api/grades", gradessRoutes);
+app.use("/api/grades", gradesRoutes);
 
 module.exports = app;
