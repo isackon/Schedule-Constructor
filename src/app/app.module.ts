@@ -18,7 +18,6 @@ import { TeachersModule } from './teachers/teachers.module';
 import { GradesModule } from './grades/grades.module';
 import { ErrorComponent } from './error/error.component';
 import { ErrorInterceptor } from './error-interceptor';
-import { GradesModule } from './grades/grades.module';
 
 @NgModule({
   declarations: [

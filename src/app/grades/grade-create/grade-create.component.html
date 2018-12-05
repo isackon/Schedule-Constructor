@@ -1,3 +1,29 @@
-<p>
-  grade-create works!
-</p>
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onSaveGrade()" *ngIf="!isLoading">
+    <mat-form-field>
+      <mat-select placeholder="Grade Department" formControlName="gradeNumber" >
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let number of numbers" [value]="number.number">
+          {{number.number}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('gradeNumber').hasError('required')">Please choose a grade department</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Grade Liter" formControlName="gradeLiter" >
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let liter of liters" [value]="liter.liter">
+          {{liter.liter}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('gradeLiter').hasError('required')">Please choose a grade liter</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Save Grade</button>
+  </form>
+</mat-card>
+
+
+
+
+

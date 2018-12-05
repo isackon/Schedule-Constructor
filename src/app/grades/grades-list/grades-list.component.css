@@ -1,0 +1,24 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+:host{
+  display: block;
+  margin-top: 1rem;
+}
+
+.info-text{
+  text-align: center;
+}
+
+mat-spinner{
+  margin: auto;
+}
+
+.info-text{
+  text-align: center;
+}
+
+button {
+  float: right;
+}
