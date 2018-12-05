@@ -7,15 +7,16 @@ import { SubjectCreateComponent } from './subjects/subject-create/subject-create
 import { SubjectsListComponent } from './subjects/subjects-list/subjects-list.component';
 import { TeacherCreateComponent } from './teachers/teacher-create/teacher-create.component';
 import { TeachersListComponent } from './teachers/teachers-list/teachers-list.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
-  { path: 'subjects/create', component: SubjectCreateComponent },
-  { path: 'subjects/edit/:subjectId', component: SubjectCreateComponent },
-  { path: 'subjects/list', component: SubjectsListComponent },
-  { path: 'teachers/create', component: TeacherCreateComponent },
-  { path: 'teachers/edit/:teacherId', component: TeacherCreateComponent },
-  { path: 'teachers/list', component: TeachersListComponent },
+  { path: 'subjects/create', component: SubjectCreateComponent, canActivate: [AuthGuard] },
+  { path: 'subjects/edit/:subjectId', component: SubjectCreateComponent, canActivate: [AuthGuard] },
+  { path: 'subjects/list', component: SubjectsListComponent, canActivate: [AuthGuard] },
+  { path: 'teachers/create', component: TeacherCreateComponent, canActivate: [AuthGuard] },
+  { path: 'teachers/edit/:teacherId', component: TeacherCreateComponent, canActivate: [AuthGuard] },
+  { path: 'teachers/list', component: TeachersListComponent, canActivate: [AuthGuard] },
 
   // { path: "create", component: PostCreateComponent, canActivate: [AuthGuard] },
   // { path: "edit/:postId", component: PostCreateComponent, canActivate: [AuthGuard] }
@@ -24,8 +25,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [
-    // AuthGuard
-  ]
+  providers: [AuthGuard]
 })
 export class AppRoutingModule {}

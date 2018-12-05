@@ -81,7 +81,7 @@ export class TeachersService {
         updatedTeachers[oldTeacherIndex] = teacher;
         this.teachers = updatedTeachers;
         this.teachersUpdated.next([...this.teachers]);
-        this.router.navigate(['/']);
+        this.router.navigate(['/teachers/list']);
       });
   }
 

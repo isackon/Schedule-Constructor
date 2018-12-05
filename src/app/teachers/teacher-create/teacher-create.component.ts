@@ -84,7 +84,18 @@ export class TeacherCreateComponent implements OnInit, OnDestroy {
       return;
     }
     this.isLoading = true;
-    this.teachersService.addTeacher(this.form.value.teacherName, this.form.value.teacherDepartment);
+    if (this.mode === 'create') {
+      this.teachersService.addTeacher(
+        this.form.value.teacherName,
+        this.form.value.teacherDepartment
+      );
+    } else {
+      this.teachersService.updateTeacher(
+        this.teacherId,
+        this.form.value.teacherName,
+        this.form.value.teacherDepartment
+      );
+    }
     this.form.reset();
   }
 
