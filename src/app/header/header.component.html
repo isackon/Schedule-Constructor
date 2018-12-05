@@ -23,6 +23,12 @@
       <a mat-button routerLink="/teachers/list" routerLinkActive="mat-accent">Teachers List</a>
     </li>
     <li *ngIf="adminIsAuthenticated">
+      <a mat-button routerLink="/grades/create" routerLinkActive="mat-accent">Create Grade</a>
+    </li>
+    <li *ngIf="adminIsAuthenticated">
+      <a mat-button routerLink="/grades/list" routerLinkActive="mat-accent">Grades List</a>
+    </li>
+    <li *ngIf="adminIsAuthenticated">
       <button mat-button (click)="onLogout()">Logout</button>
     </li>
   </ul>

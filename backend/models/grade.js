@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const gradeSchema = mongoose.Schema({
-  gradeNumber: { type: String, required: true },
+  gradeNumber: { type: Number, min: 7, max: 12, required: true },
   gradeLiter: { type: String, required: true },
 });
 

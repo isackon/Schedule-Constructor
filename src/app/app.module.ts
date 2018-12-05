@@ -17,6 +17,7 @@ import { SubjectsModule } from './subjects/subjects.module';
 import { TeachersModule } from './teachers/teachers.module';
 import { ErrorComponent } from './error/error.component';
 import { ErrorInterceptor } from './error-interceptor';
+import { GradesModule } from './grades/grades.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ErrorInterceptor } from './error-interceptor';
     AppRoutingModule,
     HttpClientModule,
     SubjectsModule,
-    TeachersModule
+    TeachersModule,
+    GradesModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
