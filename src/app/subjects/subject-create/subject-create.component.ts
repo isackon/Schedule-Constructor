@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { SubjectsService } from '../subjects.service';
@@ -16,8 +16,9 @@ export class SubjectCreateComponent implements OnInit, OnDestroy {
   subject: SubjectModel;
   isLoading = false;
   form: FormGroup;
-  // private subjectId: string;
   private authStatusSub: Subscription;
+  private mode;
+  private subjectId: string;
 
   constructor(
     public subjectsService: SubjectsService,
@@ -35,6 +36,27 @@ export class SubjectCreateComponent implements OnInit, OnDestroy {
         validators: [Validators.required]
       })
     });
+
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (paramMap.has('subjectId')) {
+        this.mode = 'edit';
+        this.subjectId = paramMap.get('subjectId');
+        this.isLoading = true;
+        this.subjectsService.getSubject(this.subjectId).subscribe(subjectData => {
+          this.isLoading = false;
+          this.subject = {
+            id: subjectData._id,
+            subjectName: subjectData.subjectName
+          };
+          this.form.setValue({
+            subjectName: this.subject.subjectName
+          });
+        });
+      } else {
+        this.mode = 'create';
+        this.subjectId = null;
+      }
+    });
   }
 
   onSaveSubject() {
@@ -42,7 +64,16 @@ export class SubjectCreateComponent implements OnInit, OnDestroy {
       return;
     }
     this.isLoading = true;
-    this.subjectsService.addSubject(this.form.value.subjectName);
+    if (this.mode === 'create') {
+      this.subjectsService.addSubject(
+        this.form.value.subjectName
+      );
+    } else {
+      this.subjectsService.updateSubject(
+        this.subjectId,
+        this.form.value.subjectName,
+      );
+    }
     this.form.reset();
   }
 

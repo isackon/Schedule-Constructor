@@ -77,7 +77,7 @@ export class SubjectsService {
         updatedSubjects[oldSubjectIndex] = subject;
         this.subjects = updatedSubjects;
         this.subjectsUpdated.next([...this.subjects]);
-        this.router.navigate(['/']);
+        this.router.navigate(['/subjects/list']);
       });
   }
 

@@ -11,8 +11,10 @@ import { TeachersListComponent } from './teachers/teachers-list/teachers-list.co
 const routes: Routes = [
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
   { path: 'subjects/create', component: SubjectCreateComponent },
+  { path: 'subjects/edit/:subjectId', component: SubjectCreateComponent },
   { path: 'subjects/list', component: SubjectsListComponent },
   { path: 'teachers/create', component: TeacherCreateComponent },
+  { path: 'teachers/edit/:teacherId', component: TeacherCreateComponent },
   { path: 'teachers/list', component: TeachersListComponent },
 
   // { path: "create", component: PostCreateComponent, canActivate: [AuthGuard] },

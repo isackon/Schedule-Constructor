@@ -8,6 +8,7 @@
         <mat-list-item *ngIf="subject.subjectName === teacher.teacherDepartment">
           <p>{{ teacher.teacherName }}</p>
           <span class="spacer"></span>
+          <a mat-button color="primary" [routerLink]="['/teachers/edit', teacher.id]">EDIT</a>
           <button mat-button color="warn" (click)="onDelete(teacher.id)">DELETE</button>
           <mat-divider [inset]="true"></mat-divider>
         </mat-list-item>

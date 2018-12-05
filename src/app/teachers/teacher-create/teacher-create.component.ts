@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { TeacherModel } from '../teacher.model';
@@ -22,6 +22,8 @@ export class TeacherCreateComponent implements OnInit, OnDestroy {
   // private teacherId: string;
   private authStatusSub: Subscription;
   private subjectsSub: Subscription;
+  private mode;
+  private teacherId: string;
 
 
   constructor(
@@ -51,6 +53,29 @@ export class TeacherCreateComponent implements OnInit, OnDestroy {
     .subscribe(( subjects: SubjectModel[] ) => {
       this.isLoading = false;
       this.subjects = subjects;
+    });
+
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (paramMap.has('teacherId')) {
+        this.mode = 'edit';
+        this.teacherId = paramMap.get('teacherId');
+        this.isLoading = true;
+        this.teachersService.getTeacher(this.teacherId).subscribe(teacherData => {
+          this.isLoading = false;
+          this.teacher = {
+            id: teacherData._id,
+            teacherName: teacherData.teacherName,
+            teacherDepartment: teacherData.teacherDepartment,
+          };
+          this.form.setValue({
+            teacherName: this.teacher.teacherName,
+            teacherDepartment: this.teacher.teacherDepartment
+          });
+        });
+      } else {
+        this.mode = 'create';
+        this.teacherId = null;
+      }
     });
   }
 
