@@ -7,9 +7,9 @@ import { SubjectCreateComponent } from './subjects/subject-create/subject-create
 import { SubjectsListComponent } from './subjects/subjects-list/subjects-list.component';
 import { TeacherCreateComponent } from './teachers/teacher-create/teacher-create.component';
 import { TeachersListComponent } from './teachers/teachers-list/teachers-list.component';
-import { AuthGuard } from './auth/auth.guard';
 import { GradeCreateComponent } from './grades/grade-create/grade-create.component';
 import { GradesListComponent } from './grades/grades-list/grades-list.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
