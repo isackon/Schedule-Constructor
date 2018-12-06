@@ -12,6 +12,7 @@ import { GradesListComponent } from './grades/grades-list/grades-list.component'
 import { AuthGuard } from './auth/auth.guard';
 import { ScheduleCreateComponent } from './grades/schedule-create/schedule-create.component';
 import { ScheduleComponent } from './grades/schedule/schedule.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'schedule/create/:gradeId', component: ScheduleCreateComponent, canActivate: [AuthGuard] },
   { path: 'schedule/:gradeId', component: ScheduleComponent},
   { path: '', component: GradesListComponent},
+  { path: 'about', component: AboutComponent},
 
   // { path: "create", component: PostCreateComponent, canActivate: [AuthGuard] },
   // { path: "edit/:postId", component: PostCreateComponent, canActivate: [AuthGuard] }

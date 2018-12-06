@@ -2,13 +2,13 @@
   <mat-spinner *ngIf="isLoading"></mat-spinner>
   <form [formGroup]="form" (submit)="onSaveGrade()" *ngIf="!isLoading">
     <mat-form-field>
-      <mat-select placeholder="Grade Department" formControlName="gradeNumber" >
+      <mat-select placeholder="Grade Number" formControlName="gradeNumber" >
         <mat-option>--</mat-option>
         <mat-option *ngFor="let number of numbers" [value]="number.number">
           {{number.number}}
         </mat-option>
       </mat-select>
-      <mat-error *ngIf="form.get('gradeNumber').hasError('required')">Please choose a grade department</mat-error>
+      <mat-error *ngIf="form.get('gradeNumber').hasError('required')">Please choose a grade number</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-select placeholder="Grade Liter" formControlName="gradeLiter" >
