@@ -14,6 +14,8 @@ export class GradesListComponent implements OnInit, OnDestroy {
   isLoading = false;
   private authStatusSub: Subscription;
   private gradesSub: Subscription;
+  adminIsAuthenticated = false;
+  adminId: string;
 
   constructor(
     public gradesService: GradesService,
@@ -36,6 +38,14 @@ export class GradesListComponent implements OnInit, OnDestroy {
           .subscribe(authStatus => {
             this.isLoading = false;
           });
+
+      this.adminIsAuthenticated = this.authService.getIsAuth();
+      this.authStatusSub = this.authService
+        .getAuthStatusListener()
+        .subscribe(isAuthenticated => {
+          this.adminIsAuthenticated = isAuthenticated;
+          this.adminId = this.authService.getAdminId();
+        });
     }
 
     onDelete(gradeId: string) {

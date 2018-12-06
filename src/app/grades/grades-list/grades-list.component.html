@@ -3,8 +3,8 @@
   <mat-list-item *ngFor="let grade of grades">
     <p>{{ grade.gradeNumber }} "{{ grade.gradeLiter }}"</p>
     <span class="spacer"></span>
-    <a mat-button color="primary" [routerLink]="['/grades/edit', grade.id]">EDIT</a>
-    <button mat-button color="warn" (click)="onDelete(grade.id)">DELETE</button>
+    <a *ngIf="adminIsAuthenticated" mat-button color="primary" [routerLink]="['/grades/edit', grade.id]">EDIT</a>
+    <button *ngIf="adminIsAuthenticated" mat-button color="warn" (click)="onDelete(grade.id)">DELETE</button>
     <mat-divider [inset]="true"></mat-divider>
   </mat-list-item>
 </mat-list>
