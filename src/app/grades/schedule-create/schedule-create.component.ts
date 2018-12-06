@@ -7,6 +7,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { GradeModel } from '../grade.model';
+import { TeacherModel } from 'src/app/teachers/teacher.model';
+import { TeachersService } from 'src/app/teachers/teachers.service';
 
 @Component({
   selector: 'app-schedule-create',
@@ -16,8 +18,10 @@ import { GradeModel } from '../grade.model';
 export class ScheduleCreateComponent implements OnInit, OnDestroy {
   subjects: SubjectModel[] = [];
   grades: GradeModel[] = [];
+  teachers: TeacherModel[] = [];
   private gradesSub: Subscription;
   private subjectsSub: Subscription;
+  private teachersSub: Subscription;
   grade: GradeModel;
   isLoading = false;
   form: FormGroup;
@@ -31,6 +35,7 @@ export class ScheduleCreateComponent implements OnInit, OnDestroy {
   constructor(
     public subjectsService: SubjectsService,
     public gradesService: GradesService,
+    public teachersService: TeachersService,
     public route: ActivatedRoute,
     private authService: AuthService) { }
 
@@ -55,6 +60,14 @@ export class ScheduleCreateComponent implements OnInit, OnDestroy {
       .subscribe(( subjects: SubjectModel[] ) => {
         this.isLoading = false;
         this.subjects = subjects;
+      });
+
+    this.teachersService.getTeachers();
+    this.teachersSub = this.teachersService
+      .getTeacherUpdateListener()
+      .subscribe(( teachers: TeacherModel[] ) => {
+        this.isLoading = false;
+        this.teachers = teachers;
       });
 
     this.form = new FormGroup({
@@ -1568,5 +1581,6 @@ export class ScheduleCreateComponent implements OnInit, OnDestroy {
     this.authStatusSub.unsubscribe();
     this.gradesSub.unsubscribe();
     this.subjectsSub.unsubscribe();
+    this.teachersSub.unsubscribe();
   }
 }
