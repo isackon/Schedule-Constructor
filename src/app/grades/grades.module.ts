@@ -6,9 +6,11 @@ import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from '../angular-material.module';
 import { GradeCreateComponent } from './grade-create/grade-create.component';
 import { GradesListComponent } from './grades-list/grades-list.component';
+import { ScheduleCreateComponent } from './schedule-create/schedule-create.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
-  declarations: [GradeCreateComponent, GradesListComponent],
+  declarations: [GradeCreateComponent, GradesListComponent, ScheduleCreateComponent, ScheduleComponent],
   imports: [
     CommonModule,
     FormsModule,
