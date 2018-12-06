@@ -3,8 +3,10 @@ table {
 }
 th, td {
   border-bottom: 1px solid #ddd;
+  height: 4rem;
 }
 h2 {
+  text-align: center;
   margin: auto;
 }
 mat-spinner {

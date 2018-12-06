@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'grades/list', component: GradesListComponent},
   { path: 'schedule/create/:gradeId', component: ScheduleCreateComponent, canActivate: [AuthGuard] },
   { path: 'schedule/:gradeId', component: ScheduleComponent},
+  { path: '', component: GradesListComponent},
 
   // { path: "create", component: PostCreateComponent, canActivate: [AuthGuard] },
   // { path: "edit/:postId", component: PostCreateComponent, canActivate: [AuthGuard] }

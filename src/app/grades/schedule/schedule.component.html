@@ -1,3 +1,945 @@
-<p>
-  schedule works!
-</p>
+
+
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <h2>{{grade?.gradeNumber}} "{{grade?.gradeLiter}}"</h2>
+    <mat-tab-group *ngIf="!isloading">
+        <mat-tab label="Monday">
+            <table class="mat-elevation-z8">
+              <thead>
+                <tr>
+                  <td>№</td>
+                  <td>Time</td>
+                  <td>First Group</td>
+                  <td>Second Group</td>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- First lesson -->
+                <tr>
+                  <td>1</td>
+                  <td>08.15 – 08.55</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.mondayFirstLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.mondayFirstLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- First lesson -->
+                <!-- Second lesson -->
+                <tr>
+                  <td>2</td>
+                  <td>09.05 – 09.45 </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.mondaySecondLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.mondaySecondLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Second lesson -->
+                <!-- Third lesson -->
+                <tr>
+                    <td>3</td>
+                    <td>09.55 – 10.35</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.mondayThirdLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.mondayThirdLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Third lesson -->
+                <!-- Fourth lesson -->
+                <tr>
+                  <td>4</td>
+                  <td>10.45 – 11.25</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.mondayFourthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.mondayFourthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fourth lesson -->
+                <!-- Fifth lesson -->
+                <tr>
+                  <td>5</td>
+                  <td>11.50 – 12.30  </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.mondayFifthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.mondayFifthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fifth lesson -->
+                <!-- Sixth lesson -->
+                <tr>
+                  <td>6</td>
+                  <td>12.55 – 13.35</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.mondaySixthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.mondaySixthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Sixth lesson -->
+                <!-- Seventh lesson -->
+                <tr>
+                    <td>7</td>
+                    <td>13.45 – 14.25</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.mondaySeventhLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.mondaySeventhLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Seventh lesson -->
+                <!-- Eighth lesson -->
+                <tr>
+                  <td>8</td>
+                  <td>14.35 – 15.15</td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.mondayEighthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.mondayEighthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Eighth lesson -->
+                <!-- Ninth lesson -->
+                <tr>
+                    <td>9</td>
+                    <td>15.30 – 16.10</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.mondayNinthLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.mondayNinthLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Ninth lesson -->
+                <!-- Tenth lesson -->
+                <tr>
+                  <td>10</td>
+                  <td>16.15 – 16.55  </td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.mondayTenthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.mondayTenthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Tenth lesson -->
+              </tbody>
+            </table>
+        </mat-tab>
+        <mat-tab label="Tuesday">
+            <table class="mat-elevation-z8">
+              <thead>
+                <tr>
+                  <td>№</td>
+                  <td>Time</td>
+                  <td>First Group</td>
+                  <td>Second Group</td>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- First lesson -->
+                <tr>
+                  <td>1</td>
+                  <td>08.15 – 08.55</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.tuesdayFirstLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.tuesdayFirstLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- First lesson -->
+                <!-- Second lesson -->
+                <tr>
+                  <td>2</td>
+                  <td>09.05 – 09.45 </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.tuesdaySecondLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.tuesdaySecondLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Second lesson -->
+                <!-- Third lesson -->
+                <tr>
+                    <td>3</td>
+                    <td>09.55 – 10.35</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.tuesdayThirdLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.tuesdayThirdLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Third lesson -->
+                <!-- Fourth lesson -->
+                <tr>
+                  <td>4</td>
+                  <td>10.45 – 11.25</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.tuesdayFourthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.tuesdayFourthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fourth lesson -->
+                <!-- Fifth lesson -->
+                <tr>
+                  <td>5</td>
+                  <td>11.50 – 12.30  </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.tuesdayFifthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.tuesdayFifthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fifth lesson -->
+                <!-- Sixth lesson -->
+                <tr>
+                  <td>6</td>
+                  <td>12.55 – 13.35</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.tuesdaySixthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.tuesdaySixthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Sixth lesson -->
+                <!-- Seventh lesson -->
+                <tr>
+                    <td>7</td>
+                    <td>13.45 – 14.25</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.tuesdaySeventhLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.tuesdaySeventhLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Seventh lesson -->
+                <!-- Eighth lesson -->
+                <tr>
+                  <td>8</td>
+                  <td>14.35 – 15.15</td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.tuesdayEighthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.tuesdayEighthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Eighth lesson -->
+                <!-- Ninth lesson -->
+                <tr>
+                    <td>9</td>
+                    <td>15.30 – 16.10</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.tuesdayNinthLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.tuesdayNinthLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Ninth lesson -->
+                <!-- Tenth lesson -->
+                <tr>
+                  <td>10</td>
+                  <td>16.15 – 16.55  </td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.tuesdayTenthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.tuesdayTenthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Tenth lesson -->
+              </tbody>
+            </table>
+        </mat-tab>
+        <mat-tab label="Wednesday">
+            <table class="mat-elevation-z8">
+              <thead>
+                <tr>
+                  <td>№</td>
+                  <td>Time</td>
+                  <td>First Group</td>
+                  <td>Second Group</td>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- First lesson -->
+                <tr>
+                  <td>1</td>
+                  <td>08.15 – 08.55</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.wednesdayFirstLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.wednesdayFirstLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- First lesson -->
+                <!-- Second lesson -->
+                <tr>
+                  <td>2</td>
+                  <td>09.05 – 09.45 </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.wednesdaySecondLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.wednesdaySecondLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Second lesson -->
+                <!-- Third lesson -->
+                <tr>
+                    <td>3</td>
+                    <td>09.55 – 10.35</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.wednesdayThirdLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.wednesdayThirdLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Third lesson -->
+                <!-- Fourth lesson -->
+                <tr>
+                  <td>4</td>
+                  <td>10.45 – 11.25</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.wednesdayFourthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.wednesdayFourthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fourth lesson -->
+                <!-- Fifth lesson -->
+                <tr>
+                  <td>5</td>
+                  <td>11.50 – 12.30  </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.wednesdayFifthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.wednesdayFifthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fifth lesson -->
+                <!-- Sixth lesson -->
+                <tr>
+                  <td>6</td>
+                  <td>12.55 – 13.35</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.wednesdaySixthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.wednesdaySixthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Sixth lesson -->
+                <!-- Seventh lesson -->
+                <tr>
+                    <td>7</td>
+                    <td>13.45 – 14.25</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.wednesdaySeventhLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.wednesdaySeventhLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Seventh lesson -->
+                <!-- Eighth lesson -->
+                <tr>
+                  <td>8</td>
+                  <td>14.35 – 15.15</td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.wednesdayEighthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.wednesdayEighthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Eighth lesson -->
+                <!-- Ninth lesson -->
+                <tr>
+                    <td>9</td>
+                    <td>15.30 – 16.10</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.wednesdayNinthLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.wednesdayNinthLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Ninth lesson -->
+                <!-- Tenth lesson -->
+                <tr>
+                  <td>10</td>
+                  <td>16.15 – 16.55  </td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.wednesdayTenthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.wednesdayTenthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Tenth lesson -->
+              </tbody>
+            </table>
+        </mat-tab>
+        <mat-tab label="Thursday">
+            <table class="mat-elevation-z8">
+              <thead>
+                <tr>
+                  <td>№</td>
+                  <td>Time</td>
+                  <td>First Group</td>
+                  <td>Second Group</td>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- First lesson -->
+                <tr>
+                  <td>1</td>
+                  <td>08.15 – 08.55</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.thursdayFirstLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.thursdayFirstLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- First lesson -->
+                <!-- Second lesson -->
+                <tr>
+                  <td>2</td>
+                  <td>09.05 – 09.45 </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.thursdaySecondLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.thursdaySecondLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Second lesson -->
+                <!-- Third lesson -->
+                <tr>
+                    <td>3</td>
+                    <td>09.55 – 10.35</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.thursdayThirdLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.thursdayThirdLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Third lesson -->
+                <!-- Fourth lesson -->
+                <tr>
+                  <td>4</td>
+                  <td>10.45 – 11.25</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.thursdayFourthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.thursdayFourthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fourth lesson -->
+                <!-- Fifth lesson -->
+                <tr>
+                  <td>5</td>
+                  <td>11.50 – 12.30  </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.thursdayFifthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.thursdayFifthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fifth lesson -->
+                <!-- Sixth lesson -->
+                <tr>
+                  <td>6</td>
+                  <td>12.55 – 13.35</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.thursdaySixthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.thursdaySixthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Sixth lesson -->
+                <!-- Seventh lesson -->
+                <tr>
+                    <td>7</td>
+                    <td>13.45 – 14.25</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.thursdaySeventhLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.thursdaySeventhLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Seventh lesson -->
+                <!-- Eighth lesson -->
+                <tr>
+                  <td>8</td>
+                  <td>14.35 – 15.15</td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.thursdayEighthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.thursdayEighthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Eighth lesson -->
+                <!-- Ninth lesson -->
+                <tr>
+                    <td>9</td>
+                    <td>15.30 – 16.10</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.thursdayNinthLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.thursdayNinthLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Ninth lesson -->
+                <!-- Tenth lesson -->
+                <tr>
+                  <td>10</td>
+                  <td>16.15 – 16.55  </td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.thursdayTenthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.thursdayTenthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Tenth lesson -->
+              </tbody>
+            </table>
+        </mat-tab>
+        <mat-tab label="Friday">
+            <table class="mat-elevation-z8">
+              <thead>
+                <tr>
+                  <td>№</td>
+                  <td>Time</td>
+                  <td>First Group</td>
+                  <td>Second Group</td>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- First lesson -->
+                <tr>
+                  <td>1</td>
+                  <td>08.15 – 08.55</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.fridayFirstLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.fridayFirstLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- First lesson -->
+                <!-- Second lesson -->
+                <tr>
+                  <td>2</td>
+                  <td>09.05 – 09.45 </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.fridaySecondLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.fridaySecondLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Second lesson -->
+                <!-- Third lesson -->
+                <tr>
+                    <td>3</td>
+                    <td>09.55 – 10.35</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.fridayThirdLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.fridayThirdLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Third lesson -->
+                <!-- Fourth lesson -->
+                <tr>
+                  <td>4</td>
+                  <td>10.45 – 11.25</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.fridayFourthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.fridayFourthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fourth lesson -->
+                <!-- Fifth lesson -->
+                <tr>
+                  <td>5</td>
+                  <td>11.50 – 12.30  </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.fridayFifthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.fridayFifthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fifth lesson -->
+                <!-- Sixth lesson -->
+                <tr>
+                  <td>6</td>
+                  <td>12.55 – 13.35</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.fridaySixthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.fridaySixthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Sixth lesson -->
+                <!-- Seventh lesson -->
+                <tr>
+                    <td>7</td>
+                    <td>13.45 – 14.25</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.fridaySeventhLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.fridaySeventhLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Seventh lesson -->
+                <!-- Eighth lesson -->
+                <tr>
+                  <td>8</td>
+                  <td>14.35 – 15.15</td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.fridayEighthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.fridayEighthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Eighth lesson -->
+                <!-- Ninth lesson -->
+                <tr>
+                    <td>9</td>
+                    <td>15.30 – 16.10</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.fridayNinthLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.fridayNinthLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Ninth lesson -->
+                <!-- Tenth lesson -->
+                <tr>
+                  <td>10</td>
+                  <td>16.15 – 16.55  </td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.fridayTenthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.fridayTenthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Tenth lesson -->
+              </tbody>
+            </table>
+        </mat-tab>
+        <mat-tab label="Saturday">
+            <table class="mat-elevation-z8">
+              <thead>
+                <tr>
+                  <td>№</td>
+                  <td>Time</td>
+                  <td>First Group</td>
+                  <td>Second Group</td>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- First lesson -->
+                <tr>
+                  <td>1</td>
+                  <td>08.15 – 08.55</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.saturdayFirstLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.saturdayFirstLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- First lesson -->
+                <!-- Second lesson -->
+                <tr>
+                  <td>2</td>
+                  <td>09.05 – 09.45 </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.saturdaySecondLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.saturdaySecondLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Second lesson -->
+                <!-- Third lesson -->
+                <tr>
+                    <td>3</td>
+                    <td>09.55 – 10.35</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.saturdayThirdLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.saturdayThirdLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Third lesson -->
+                <!-- Fourth lesson -->
+                <tr>
+                  <td>4</td>
+                  <td>10.45 – 11.25</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.saturdayFourthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.saturdayFourthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fourth lesson -->
+                <!-- Fifth lesson -->
+                <tr>
+                  <td>5</td>
+                  <td>11.50 – 12.30  </td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.saturdayFifthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.saturdayFifthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Fifth lesson -->
+                <!-- Sixth lesson -->
+                <tr>
+                  <td>6</td>
+                  <td>12.55 – 13.35</td>
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.saturdaySixthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.saturdaySixthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Sixth lesson -->
+                <!-- Seventh lesson -->
+                <tr>
+                    <td>7</td>
+                    <td>13.45 – 14.25</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.saturdaySeventhLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.saturdaySeventhLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Seventh lesson -->
+                <!-- Eighth lesson -->
+                <tr>
+                  <td>8</td>
+                  <td>14.35 – 15.15</td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.saturdayEighthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.saturdayEighthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Eighth lesson -->
+                <!-- Ninth lesson -->
+                <tr>
+                    <td>9</td>
+                    <td>15.30 – 16.10</td>
+                    <!-- First Group -->
+                    <td>
+                        <h4>{{ grade?.saturdayNinthLessonFG }}</h4>
+                  </td>
+                    <!-- Second Group -->
+                  <td>
+                      <h4>{{ grade?.saturdayNinthLessonSG }}</h4>
+                  </td>
+                </tr>
+                <!-- Ninth lesson -->
+                <!-- Tenth lesson -->
+                <tr>
+                  <td>10</td>
+                  <td>16.15 – 16.55  </td>
+
+                  <!-- First Group -->
+                  <td>
+                      <h4>{{ grade?.saturdayTenthLessonFG }}</h4>
+                </td>
+                  <!-- Second Group -->
+                <td>
+                    <h4>{{ grade?.saturdayTenthLessonSG }}</h4>
+                </td>
+                </tr>
+                <!-- Tenth lesson -->
+              </tbody>
+            </table>
+        </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+
