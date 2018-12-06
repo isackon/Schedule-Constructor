@@ -1,3 +1,1908 @@
-<p>
-  schedule-create works!
-</p>
+
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<form [formGroup]="form" (submit)="onSaveGrade()" *ngIf="!isLoading">
+  <h2>
+    {{grade?.gradeNumber}} "{{grade?.gradeLiter}}"
+    <button mat-raised-button color="accent" type="submit">Save Grade</button>
+  </h2>
+  <mat-tab-group *ngIf="!isLoading">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <mat-tab label="Monday">
+        <table class="mat-elevation-z8">
+          <thead>
+            <tr>
+              <td>№</td>
+              <td>Time</td>
+              <td>First Group</td>
+              <td>Second Group</td>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- First lesson -->
+            <tr>
+              <td>1</td>
+              <td>08.15 – 08.55</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="First Lesson" formControlName="mondayFirstLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondayFirstLessonFG').hasError('required')">Please choose a first lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="First Lesson" formControlName="mondayFirstLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondayFirstLessonSG').hasError('required')">Please choose a first lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- First lesson -->
+            <!-- Second lesson -->
+            <tr>
+              <td>2</td>
+              <td>09.05 – 09.45 </td>
+              <!-- Second Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Second Lesson" formControlName="mondaySecondLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondaySecondLessonFG').hasError('required')">Please choose a second lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Second Lesson" formControlName="mondaySecondLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondaySecondLessonSG').hasError('required')">Please choose a second lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Second lesson -->
+            <!-- Third lesson -->
+            <tr>
+                <td>3</td>
+                <td>09.55 – 10.35</td>
+                <!-- First Group -->
+                <td>
+                <mat-form-field>
+                  <mat-select placeholder="Third Lesson" formControlName="mondayThirdLessonFG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('mondayThirdLessonFG').hasError('required')">Please choose a third lesson</mat-error>
+                </mat-form-field>
+              </td>
+                <!-- Fourth Group -->
+              <td>
+                <mat-form-field>
+                  <mat-select placeholder="Third Lesson" formControlName="mondayThirdLessonSG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('mondayThirdLessonSG').hasError('required')">Please choose a third lesson</mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <!-- Third lesson -->
+            <!-- Fourth lesson -->
+            <tr>
+              <td>4</td>
+              <td>10.45 – 11.25</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Fourth Lesson" formControlName="mondayFourthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondayFourthLessonFG').hasError('required')">Please choose a fourth lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Fourth Lesson" formControlName="mondayFourthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondayFourthLessonSG').hasError('required')">Please choose a fourth lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Fourth lesson -->
+            <!-- Fifth lesson -->
+            <tr>
+              <td>5</td>
+              <td>11.50 – 12.30  </td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Fifth Lesson" formControlName="mondayFifthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondayFifthLessonFG').hasError('required')">Please choose a fifth lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Fifth Lesson" formControlName="mondayFifthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondayFifthLessonSG').hasError('required')">Please choose a fifth lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Fifth lesson -->
+            <!-- Sixth lesson -->
+            <tr>
+              <td>6</td>
+              <td>12.55 – 13.35</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Sixth Lesson" formControlName="mondaySixthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondaySixthLessonFG').hasError('required')">Please choose a sixth lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Sixth Lesson" formControlName="mondaySixthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondaySixthLessonSG').hasError('required')">Please choose a sixth lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Sixth lesson -->
+            <!-- Seventh lesson -->
+            <tr>
+                <td>7</td>
+                <td>13.45 – 14.25</td>
+                <!-- First Group -->
+                <td>
+                <mat-form-field>
+                  <mat-select placeholder="Seventh Lesson" formControlName="mondaySeventhLessonFG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('mondaySeventhLessonFG').hasError('required')">Please choose a seventh lesson</mat-error>
+                </mat-form-field>
+              </td>
+                <!-- Second Group -->
+              <td>
+                <mat-form-field>
+                  <mat-select placeholder="Seventh Lesson" formControlName="mondaySeventhLessonSG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('mondaySeventhLessonSG').hasError('required')">Please choose a seventh lesson</mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <!-- Seventh lesson -->
+            <!-- Eighth lesson -->
+            <tr>
+              <td>8</td>
+              <td>14.35 – 15.15</td>
+
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Eighth Lesson" formControlName="mondayEighthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondayEighthLessonFG').hasError('required')">Please choose a eighth lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Eighth Lesson" formControlName="mondayEighthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondayEighthLessonSG').hasError('required')">Please choose a eighth lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Eighth lesson -->
+            <!-- Ninth lesson -->
+            <tr>
+                <td>9</td>
+                <td>15.30 – 16.10</td>
+                <!-- First Group -->
+                <td>
+                <mat-form-field>
+                  <mat-select placeholder="Ninth Lesson" formControlName="mondayNinthLessonFG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('mondayNinthLessonFG').hasError('required')">Please choose a ninth lesson</mat-error>
+                </mat-form-field>
+              </td>
+                <!-- Second Group -->
+              <td>
+                <mat-form-field>
+                  <mat-select placeholder="Ninth Lesson" formControlName="mondayNinthLessonSG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('mondayNinthLessonSG').hasError('required')">Please choose a ninth lesson</mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <!-- Ninth lesson -->
+            <!-- Tenth lesson -->
+            <tr>
+              <td>10</td>
+              <td>16.15 – 16.55  </td>
+
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Tenth Lesson" formControlName="mondayTenthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondayTenthLessonFG').hasError('required')">Please choose a tenth lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Tenth Lesson" formControlName="mondayTenthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('mondayTenthLessonSG').hasError('required')">Please choose a tenth lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Tenth lesson -->
+          </tbody>
+        </table>
+    </mat-tab>
+    <mat-tab label="Tuesday">
+      <table class="mat-elevation-z8">
+          <thead>
+          <tr>
+              <td>№</td>
+              <td>Time</td>
+              <td>First Group</td>
+              <td>Second Group</td>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- First lesson -->
+          <tr>
+              <td>1</td>
+              <td>08.15 – 08.55</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="First Lesson" formControlName="tuesdayFirstLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdayFirstLessonFG').hasError('required')">Please choose a first lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="First Lesson" formControlName="tuesdayFirstLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdayFirstLessonSG').hasError('required')">Please choose a first lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- First lesson -->
+          <!-- Second lesson -->
+          <tr>
+              <td>2</td>
+              <td>09.05 – 09.45 </td>
+              <!-- Second Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Second Lesson" formControlName="tuesdaySecondLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdaySecondLessonFG').hasError('required')">Please choose a second lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Second Lesson" formControlName="tuesdaySecondLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdaySecondLessonSG').hasError('required')">Please choose a second lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Second lesson -->
+          <!-- Third lesson -->
+          <tr>
+              <td>3</td>
+              <td>09.55 – 10.35</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Third Lesson" formControlName="tuesdayThirdLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('tuesdayThirdLessonFG').hasError('required')">Please choose a third lesson</mat-error>
+              </mat-form-field>
+              </td>
+              <!-- Fourth Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Third Lesson" formControlName="tuesdayThirdLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('tuesdayThirdLessonSG').hasError('required')">Please choose a third lesson</mat-error>
+              </mat-form-field>
+              </td>
+          </tr>
+          <!-- Third lesson -->
+          <!-- Fourth lesson -->
+          <tr>
+              <td>4</td>
+              <td>10.45 – 11.25</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Fourth Lesson" formControlName="tuesdayFourthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdayFourthLessonFG').hasError('required')">Please choose a fourth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Fourth Lesson" formControlName="tuesdayFourthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdayFourthLessonSG').hasError('required')">Please choose a fourth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Fourth lesson -->
+          <!-- Fifth lesson -->
+          <tr>
+              <td>5</td>
+              <td>11.50 – 12.30  </td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Fifth Lesson" formControlName="tuesdayFifthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdayFifthLessonFG').hasError('required')">Please choose a fifth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Fifth Lesson" formControlName="tuesdayFifthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdayFifthLessonSG').hasError('required')">Please choose a fifth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Fifth lesson -->
+          <!-- Sixth lesson -->
+          <tr>
+              <td>6</td>
+              <td>12.55 – 13.35</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Sixth Lesson" formControlName="tuesdaySixthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdaySixthLessonFG').hasError('required')">Please choose a sixth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Sixth Lesson" formControlName="tuesdaySixthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdaySixthLessonSG').hasError('required')">Please choose a sixth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Sixth lesson -->
+          <!-- Seventh lesson -->
+          <tr>
+              <td>7</td>
+              <td>13.45 – 14.25</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Seventh Lesson" formControlName="tuesdaySeventhLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('tuesdaySeventhLessonFG').hasError('required')">Please choose a seventh lesson</mat-error>
+              </mat-form-field>
+              </td>
+              <!-- Second Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Seventh Lesson" formControlName="tuesdaySeventhLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('tuesdaySeventhLessonSG').hasError('required')">Please choose a seventh lesson</mat-error>
+              </mat-form-field>
+              </td>
+          </tr>
+          <!-- Seventh lesson -->
+          <!-- Eighth lesson -->
+          <tr>
+              <td>8</td>
+              <td>14.35 – 15.15</td>
+
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Eighth Lesson" formControlName="tuesdayEighthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdayEighthLessonFG').hasError('required')">Please choose a eighth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Eighth Lesson" formControlName="tuesdayEighthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdayEighthLessonSG').hasError('required')">Please choose a eighth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Eighth lesson -->
+          <!-- Ninth lesson -->
+          <tr>
+              <td>9</td>
+              <td>15.30 – 16.10</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Ninth Lesson" formControlName="tuesdayNinthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('tuesdayNinthLessonFG').hasError('required')">Please choose a ninth lesson</mat-error>
+              </mat-form-field>
+              </td>
+              <!-- Second Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Ninth Lesson" formControlName="tuesdayNinthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('tuesdayNinthLessonSG').hasError('required')">Please choose a ninth lesson</mat-error>
+              </mat-form-field>
+              </td>
+          </tr>
+          <!-- Ninth lesson -->
+          <!-- Tenth lesson -->
+          <tr>
+              <td>10</td>
+              <td>16.15 – 16.55  </td>
+
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Tenth Lesson" formControlName="tuesdayTenthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdayTenthLessonFG').hasError('required')">Please choose a tenth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Tenth Lesson" formControlName="tuesdayTenthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('tuesdayTenthLessonSG').hasError('required')">Please choose a tenth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Tenth lesson -->
+          </tbody>
+      </table>
+    </mat-tab>
+    <mat-tab label="Wednesday">
+        <table class="mat-elevation-z8">
+          <thead>
+            <tr>
+              <td>№</td>
+              <td>Time</td>
+              <td>First Group</td>
+              <td>Second Group</td>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- First lesson -->
+            <tr>
+              <td>1</td>
+              <td>08.15 – 08.55</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="First Lesson" formControlName="wednesdayFirstLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdayFirstLessonFG').hasError('required')">Please choose a first lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="First Lesson" formControlName="wednesdayFirstLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdayFirstLessonSG').hasError('required')">Please choose a first lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- First lesson -->
+            <!-- Second lesson -->
+            <tr>
+              <td>2</td>
+              <td>09.05 – 09.45 </td>
+              <!-- Second Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Second Lesson" formControlName="wednesdaySecondLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdaySecondLessonFG').hasError('required')">Please choose a second lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Second Lesson" formControlName="wednesdaySecondLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdaySecondLessonSG').hasError('required')">Please choose a second lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Second lesson -->
+            <!-- Third lesson -->
+            <tr>
+                <td>3</td>
+                <td>09.55 – 10.35</td>
+                <!-- First Group -->
+                <td>
+                <mat-form-field>
+                  <mat-select placeholder="Third Lesson" formControlName="wednesdayThirdLessonFG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('wednesdayThirdLessonFG').hasError('required')">Please choose a third lesson</mat-error>
+                </mat-form-field>
+              </td>
+                <!-- Fourth Group -->
+              <td>
+                <mat-form-field>
+                  <mat-select placeholder="Third Lesson" formControlName="wednesdayThirdLessonSG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('wednesdayThirdLessonSG').hasError('required')">Please choose a third lesson</mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <!-- Third lesson -->
+            <!-- Fourth lesson -->
+            <tr>
+              <td>4</td>
+              <td>10.45 – 11.25</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Fourth Lesson" formControlName="wednesdayFourthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdayFourthLessonFG').hasError('required')">Please choose a fourth lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Fourth Lesson" formControlName="wednesdayFourthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdayFourthLessonSG').hasError('required')">Please choose a fourth lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Fourth lesson -->
+            <!-- Fifth lesson -->
+            <tr>
+              <td>5</td>
+              <td>11.50 – 12.30  </td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Fifth Lesson" formControlName="wednesdayFifthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdayFifthLessonFG').hasError('required')">Please choose a fifth lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Fifth Lesson" formControlName="wednesdayFifthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdayFifthLessonSG').hasError('required')">Please choose a fifth lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Fifth lesson -->
+            <!-- Sixth lesson -->
+            <tr>
+              <td>6</td>
+              <td>12.55 – 13.35</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Sixth Lesson" formControlName="wednesdaySixthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdaySixthLessonFG').hasError('required')">Please choose a sixth lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Sixth Lesson" formControlName="wednesdaySixthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdaySixthLessonSG').hasError('required')">Please choose a sixth lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Sixth lesson -->
+            <!-- Seventh lesson -->
+            <tr>
+                <td>7</td>
+                <td>13.45 – 14.25</td>
+                <!-- First Group -->
+                <td>
+                <mat-form-field>
+                  <mat-select placeholder="Seventh Lesson" formControlName="wednesdaySeventhLessonFG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('wednesdaySeventhLessonFG').hasError('required')">Please choose a seventh lesson</mat-error>
+                </mat-form-field>
+              </td>
+                <!-- Second Group -->
+              <td>
+                <mat-form-field>
+                  <mat-select placeholder="Seventh Lesson" formControlName="wednesdaySeventhLessonSG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('wednesdaySeventhLessonSG').hasError('required')">Please choose a seventh lesson</mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <!-- Seventh lesson -->
+            <!-- Eighth lesson -->
+            <tr>
+              <td>8</td>
+              <td>14.35 – 15.15</td>
+
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Eighth Lesson" formControlName="wednesdayEighthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdayEighthLessonFG').hasError('required')">Please choose a eighth lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Eighth Lesson" formControlName="wednesdayEighthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdayEighthLessonSG').hasError('required')">Please choose a eighth lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Eighth lesson -->
+            <!-- Ninth lesson -->
+            <tr>
+                <td>9</td>
+                <td>15.30 – 16.10</td>
+                <!-- First Group -->
+                <td>
+                <mat-form-field>
+                  <mat-select placeholder="Ninth Lesson" formControlName="wednesdayNinthLessonFG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('wednesdayNinthLessonFG').hasError('required')">Please choose a ninth lesson</mat-error>
+                </mat-form-field>
+              </td>
+                <!-- Second Group -->
+              <td>
+                <mat-form-field>
+                  <mat-select placeholder="Ninth Lesson" formControlName="wednesdayNinthLessonSG" >
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('wednesdayNinthLessonSG').hasError('required')">Please choose a ninth lesson</mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+            <!-- Ninth lesson -->
+            <!-- Tenth lesson -->
+            <tr>
+              <td>10</td>
+              <td>16.15 – 16.55  </td>
+
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Tenth Lesson" formControlName="wednesdayTenthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdayTenthLessonFG').hasError('required')">Please choose a tenth lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Tenth Lesson" formControlName="wednesdayTenthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('wednesdayTenthLessonSG').hasError('required')">Please choose a tenth lesson</mat-error>
+              </mat-form-field>
+            </td>
+            </tr>
+            <!-- Tenth lesson -->
+          </tbody>
+        </table>
+    </mat-tab>
+    <mat-tab label="Thursday">
+      <table class="mat-elevation-z8">
+          <thead>
+          <tr>
+              <td>№</td>
+              <td>Time</td>
+              <td>First Group</td>
+              <td>Second Group</td>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- First lesson -->
+          <tr>
+              <td>1</td>
+              <td>08.15 – 08.55</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="First Lesson" formControlName="thursdayFirstLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdayFirstLessonFG').hasError('required')">Please choose a first lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="First Lesson" formControlName="thursdayFirstLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdayFirstLessonSG').hasError('required')">Please choose a first lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- First lesson -->
+          <!-- Second lesson -->
+          <tr>
+              <td>2</td>
+              <td>09.05 – 09.45 </td>
+              <!-- Second Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Second Lesson" formControlName="thursdaySecondLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdaySecondLessonFG').hasError('required')">Please choose a second lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Second Lesson" formControlName="thursdaySecondLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdaySecondLessonSG').hasError('required')">Please choose a second lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Second lesson -->
+          <!-- Third lesson -->
+          <tr>
+              <td>3</td>
+              <td>09.55 – 10.35</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Third Lesson" formControlName="thursdayThirdLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('thursdayThirdLessonFG').hasError('required')">Please choose a third lesson</mat-error>
+              </mat-form-field>
+              </td>
+              <!-- Fourth Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Third Lesson" formControlName="thursdayThirdLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('thursdayThirdLessonSG').hasError('required')">Please choose a third lesson</mat-error>
+              </mat-form-field>
+              </td>
+          </tr>
+          <!-- Third lesson -->
+          <!-- Fourth lesson -->
+          <tr>
+              <td>4</td>
+              <td>10.45 – 11.25</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Fourth Lesson" formControlName="thursdayFourthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdayFourthLessonFG').hasError('required')">Please choose a fourth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Fourth Lesson" formControlName="thursdayFourthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdayFourthLessonSG').hasError('required')">Please choose a fourth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Fourth lesson -->
+          <!-- Fifth lesson -->
+          <tr>
+              <td>5</td>
+              <td>11.50 – 12.30  </td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Fifth Lesson" formControlName="thursdayFifthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdayFifthLessonFG').hasError('required')">Please choose a fifth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Fifth Lesson" formControlName="thursdayFifthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdayFifthLessonSG').hasError('required')">Please choose a fifth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Fifth lesson -->
+          <!-- Sixth lesson -->
+          <tr>
+              <td>6</td>
+              <td>12.55 – 13.35</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Sixth Lesson" formControlName="thursdaySixthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdaySixthLessonFG').hasError('required')">Please choose a sixth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Sixth Lesson" formControlName="thursdaySixthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdaySixthLessonSG').hasError('required')">Please choose a sixth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Sixth lesson -->
+          <!-- Seventh lesson -->
+          <tr>
+              <td>7</td>
+              <td>13.45 – 14.25</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Seventh Lesson" formControlName="thursdaySeventhLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('thursdaySeventhLessonFG').hasError('required')">Please choose a seventh lesson</mat-error>
+              </mat-form-field>
+              </td>
+              <!-- Second Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Seventh Lesson" formControlName="thursdaySeventhLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('thursdaySeventhLessonSG').hasError('required')">Please choose a seventh lesson</mat-error>
+              </mat-form-field>
+              </td>
+          </tr>
+          <!-- Seventh lesson -->
+          <!-- Eighth lesson -->
+          <tr>
+              <td>8</td>
+              <td>14.35 – 15.15</td>
+
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Eighth Lesson" formControlName="thursdayEighthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdayEighthLessonFG').hasError('required')">Please choose a eighth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Eighth Lesson" formControlName="thursdayEighthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdayEighthLessonSG').hasError('required')">Please choose a eighth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Eighth lesson -->
+          <!-- Ninth lesson -->
+          <tr>
+              <td>9</td>
+              <td>15.30 – 16.10</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Ninth Lesson" formControlName="thursdayNinthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('thursdayNinthLessonFG').hasError('required')">Please choose a ninth lesson</mat-error>
+              </mat-form-field>
+              </td>
+              <!-- Second Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Ninth Lesson" formControlName="thursdayNinthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('thursdayNinthLessonSG').hasError('required')">Please choose a ninth lesson</mat-error>
+              </mat-form-field>
+              </td>
+          </tr>
+          <!-- Ninth lesson -->
+          <!-- Tenth lesson -->
+          <tr>
+              <td>10</td>
+              <td>16.15 – 16.55  </td>
+
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Tenth Lesson" formControlName="thursdayTenthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdayTenthLessonFG').hasError('required')">Please choose a tenth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Tenth Lesson" formControlName="thursdayTenthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('thursdayTenthLessonSG').hasError('required')">Please choose a tenth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Tenth lesson -->
+          </tbody>
+      </table>
+    </mat-tab>
+    <mat-tab label="Friday">
+      <table class="mat-elevation-z8">
+        <thead>
+          <tr>
+            <td>№</td>
+            <td>Time</td>
+            <td>First Group</td>
+            <td>Second Group</td>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- First lesson -->
+          <tr>
+            <td>1</td>
+            <td>08.15 – 08.55</td>
+            <!-- First Group -->
+            <td>
+            <mat-form-field>
+              <mat-select placeholder="First Lesson" formControlName="fridayFirstLessonFG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridayFirstLessonFG').hasError('required')">Please choose a first lesson</mat-error>
+            </mat-form-field>
+          </td>
+            <!-- Second Group -->
+          <td>
+            <mat-form-field>
+              <mat-select placeholder="First Lesson" formControlName="fridayFirstLessonSG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridayFirstLessonSG').hasError('required')">Please choose a first lesson</mat-error>
+            </mat-form-field>
+          </td>
+          </tr>
+          <!-- First lesson -->
+          <!-- Second lesson -->
+          <tr>
+            <td>2</td>
+            <td>09.05 – 09.45 </td>
+            <!-- Second Group -->
+            <td>
+            <mat-form-field>
+              <mat-select placeholder="Second Lesson" formControlName="fridaySecondLessonFG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridaySecondLessonFG').hasError('required')">Please choose a second lesson</mat-error>
+            </mat-form-field>
+          </td>
+            <!-- Second Group -->
+          <td>
+            <mat-form-field>
+              <mat-select placeholder="Second Lesson" formControlName="fridaySecondLessonSG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridaySecondLessonSG').hasError('required')">Please choose a second lesson</mat-error>
+            </mat-form-field>
+          </td>
+          </tr>
+          <!-- Second lesson -->
+          <!-- Third lesson -->
+          <tr>
+              <td>3</td>
+              <td>09.55 – 10.35</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Third Lesson" formControlName="fridayThirdLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('fridayThirdLessonFG').hasError('required')">Please choose a third lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Fourth Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Third Lesson" formControlName="fridayThirdLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('fridayThirdLessonSG').hasError('required')">Please choose a third lesson</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <!-- Third lesson -->
+          <!-- Fourth lesson -->
+          <tr>
+            <td>4</td>
+            <td>10.45 – 11.25</td>
+            <!-- First Group -->
+            <td>
+            <mat-form-field>
+              <mat-select placeholder="Fourth Lesson" formControlName="fridayFourthLessonFG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridayFourthLessonFG').hasError('required')">Please choose a fourth lesson</mat-error>
+            </mat-form-field>
+          </td>
+            <!-- Second Group -->
+          <td>
+            <mat-form-field>
+              <mat-select placeholder="Fourth Lesson" formControlName="fridayFourthLessonSG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridayFourthLessonSG').hasError('required')">Please choose a fourth lesson</mat-error>
+            </mat-form-field>
+          </td>
+          </tr>
+          <!-- Fourth lesson -->
+          <!-- Fifth lesson -->
+          <tr>
+            <td>5</td>
+            <td>11.50 – 12.30  </td>
+            <!-- First Group -->
+            <td>
+            <mat-form-field>
+              <mat-select placeholder="Fifth Lesson" formControlName="fridayFifthLessonFG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridayFifthLessonFG').hasError('required')">Please choose a fifth lesson</mat-error>
+            </mat-form-field>
+          </td>
+            <!-- Second Group -->
+          <td>
+            <mat-form-field>
+              <mat-select placeholder="Fifth Lesson" formControlName="fridayFifthLessonSG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridayFifthLessonSG').hasError('required')">Please choose a fifth lesson</mat-error>
+            </mat-form-field>
+          </td>
+          </tr>
+          <!-- Fifth lesson -->
+          <!-- Sixth lesson -->
+          <tr>
+            <td>6</td>
+            <td>12.55 – 13.35</td>
+            <!-- First Group -->
+            <td>
+            <mat-form-field>
+              <mat-select placeholder="Sixth Lesson" formControlName="fridaySixthLessonFG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridaySixthLessonFG').hasError('required')">Please choose a sixth lesson</mat-error>
+            </mat-form-field>
+          </td>
+            <!-- Second Group -->
+          <td>
+            <mat-form-field>
+              <mat-select placeholder="Sixth Lesson" formControlName="fridaySixthLessonSG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridaySixthLessonSG').hasError('required')">Please choose a sixth lesson</mat-error>
+            </mat-form-field>
+          </td>
+          </tr>
+          <!-- Sixth lesson -->
+          <!-- Seventh lesson -->
+          <tr>
+              <td>7</td>
+              <td>13.45 – 14.25</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Seventh Lesson" formControlName="fridaySeventhLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('fridaySeventhLessonFG').hasError('required')">Please choose a seventh lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Seventh Lesson" formControlName="fridaySeventhLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('fridaySeventhLessonSG').hasError('required')">Please choose a seventh lesson</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <!-- Seventh lesson -->
+          <!-- Eighth lesson -->
+          <tr>
+            <td>8</td>
+            <td>14.35 – 15.15</td>
+
+            <!-- First Group -->
+            <td>
+            <mat-form-field>
+              <mat-select placeholder="Eighth Lesson" formControlName="fridayEighthLessonFG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridayEighthLessonFG').hasError('required')">Please choose a eighth lesson</mat-error>
+            </mat-form-field>
+          </td>
+            <!-- Second Group -->
+          <td>
+            <mat-form-field>
+              <mat-select placeholder="Eighth Lesson" formControlName="fridayEighthLessonSG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridayEighthLessonSG').hasError('required')">Please choose a eighth lesson</mat-error>
+            </mat-form-field>
+          </td>
+          </tr>
+          <!-- Eighth lesson -->
+          <!-- Ninth lesson -->
+          <tr>
+              <td>9</td>
+              <td>15.30 – 16.10</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                <mat-select placeholder="Ninth Lesson" formControlName="fridayNinthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('fridayNinthLessonFG').hasError('required')">Please choose a ninth lesson</mat-error>
+              </mat-form-field>
+            </td>
+              <!-- Second Group -->
+            <td>
+              <mat-form-field>
+                <mat-select placeholder="Ninth Lesson" formControlName="fridayNinthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                    {{subject.subjectName}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('fridayNinthLessonSG').hasError('required')">Please choose a ninth lesson</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <!-- Ninth lesson -->
+          <!-- Tenth lesson -->
+          <tr>
+            <td>10</td>
+            <td>16.15 – 16.55  </td>
+
+            <!-- First Group -->
+            <td>
+            <mat-form-field>
+              <mat-select placeholder="Tenth Lesson" formControlName="fridayTenthLessonFG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridayTenthLessonFG').hasError('required')">Please choose a tenth lesson</mat-error>
+            </mat-form-field>
+          </td>
+            <!-- Second Group -->
+          <td>
+            <mat-form-field>
+              <mat-select placeholder="Tenth Lesson" formControlName="fridayTenthLessonSG" >
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('fridayTenthLessonSG').hasError('required')">Please choose a tenth lesson</mat-error>
+            </mat-form-field>
+          </td>
+          </tr>
+          <!-- Tenth lesson -->
+        </tbody>
+      </table>
+    </mat-tab>
+    <mat-tab label="Saturday">
+      <table class="mat-elevation-z8">
+          <thead>
+          <tr>
+              <td>№</td>
+              <td>Time</td>
+              <td>First Group</td>
+              <td>Second Group</td>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- First lesson -->
+          <tr>
+              <td>1</td>
+              <td>08.15 – 08.55</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="First Lesson" formControlName="saturdayFirstLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdayFirstLessonFG').hasError('required')">Please choose a first lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="First Lesson" formControlName="saturdayFirstLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdayFirstLessonSG').hasError('required')">Please choose a first lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- First lesson -->
+          <!-- Second lesson -->
+          <tr>
+              <td>2</td>
+              <td>09.05 – 09.45 </td>
+              <!-- Second Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Second Lesson" formControlName="saturdaySecondLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdaySecondLessonFG').hasError('required')">Please choose a second lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Second Lesson" formControlName="saturdaySecondLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdaySecondLessonSG').hasError('required')">Please choose a second lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Second lesson -->
+          <!-- Third lesson -->
+          <tr>
+              <td>3</td>
+              <td>09.55 – 10.35</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Third Lesson" formControlName="saturdayThirdLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('saturdayThirdLessonFG').hasError('required')">Please choose a third lesson</mat-error>
+              </mat-form-field>
+              </td>
+              <!-- Fourth Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Third Lesson" formControlName="saturdayThirdLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('saturdayThirdLessonSG').hasError('required')">Please choose a third lesson</mat-error>
+              </mat-form-field>
+              </td>
+          </tr>
+          <!-- Third lesson -->
+          <!-- Fourth lesson -->
+          <tr>
+              <td>4</td>
+              <td>10.45 – 11.25</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Fourth Lesson" formControlName="saturdayFourthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdayFourthLessonFG').hasError('required')">Please choose a fourth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Fourth Lesson" formControlName="saturdayFourthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdayFourthLessonSG').hasError('required')">Please choose a fourth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Fourth lesson -->
+          <!-- Fifth lesson -->
+          <tr>
+              <td>5</td>
+              <td>11.50 – 12.30  </td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Fifth Lesson" formControlName="saturdayFifthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdayFifthLessonFG').hasError('required')">Please choose a fifth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Fifth Lesson" formControlName="saturdayFifthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdayFifthLessonSG').hasError('required')">Please choose a fifth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Fifth lesson -->
+          <!-- Sixth lesson -->
+          <tr>
+              <td>6</td>
+              <td>12.55 – 13.35</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Sixth Lesson" formControlName="saturdaySixthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdaySixthLessonFG').hasError('required')">Please choose a sixth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Sixth Lesson" formControlName="saturdaySixthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdaySixthLessonSG').hasError('required')">Please choose a sixth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Sixth lesson -->
+          <!-- Seventh lesson -->
+          <tr>
+              <td>7</td>
+              <td>13.45 – 14.25</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Seventh Lesson" formControlName="saturdaySeventhLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('saturdaySeventhLessonFG').hasError('required')">Please choose a seventh lesson</mat-error>
+              </mat-form-field>
+              </td>
+              <!-- Second Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Seventh Lesson" formControlName="saturdaySeventhLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('saturdaySeventhLessonSG').hasError('required')">Please choose a seventh lesson</mat-error>
+              </mat-form-field>
+              </td>
+          </tr>
+          <!-- Seventh lesson -->
+          <!-- Eighth lesson -->
+          <tr>
+              <td>8</td>
+              <td>14.35 – 15.15</td>
+
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Eighth Lesson" formControlName="saturdayEighthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdayEighthLessonFG').hasError('required')">Please choose a eighth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Eighth Lesson" formControlName="saturdayEighthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdayEighthLessonSG').hasError('required')">Please choose a eighth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Eighth lesson -->
+          <!-- Ninth lesson -->
+          <tr>
+              <td>9</td>
+              <td>15.30 – 16.10</td>
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Ninth Lesson" formControlName="saturdayNinthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('saturdayNinthLessonFG').hasError('required')">Please choose a ninth lesson</mat-error>
+              </mat-form-field>
+              </td>
+              <!-- Second Group -->
+              <td>
+              <mat-form-field>
+                  <mat-select placeholder="Ninth Lesson" formControlName="saturdayNinthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                      {{subject.subjectName}}
+                  </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="form.get('saturdayNinthLessonSG').hasError('required')">Please choose a ninth lesson</mat-error>
+              </mat-form-field>
+              </td>
+          </tr>
+          <!-- Ninth lesson -->
+          <!-- Tenth lesson -->
+          <tr>
+              <td>10</td>
+              <td>16.15 – 16.55  </td>
+
+              <!-- First Group -->
+              <td>
+              <mat-form-field>
+              <mat-select placeholder="Tenth Lesson" formControlName="saturdayTenthLessonFG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdayTenthLessonFG').hasError('required')">Please choose a tenth lesson</mat-error>
+              </mat-form-field>
+          </td>
+              <!-- Second Group -->
+          <td>
+              <mat-form-field>
+              <mat-select placeholder="Tenth Lesson" formControlName="saturdayTenthLessonSG" >
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let subject of subjects" [value]="subject.subjectName">
+                  {{subject.subjectName}}
+                  </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('saturdayTenthLessonSG').hasError('required')">Please choose a tenth lesson</mat-error>
+              </mat-form-field>
+          </td>
+          </tr>
+          <!-- Tenth lesson -->
+          </tbody>
+      </table>
+    </mat-tab>
+  </mat-tab-group>
+</form>
+

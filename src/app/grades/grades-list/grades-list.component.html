@@ -1,14 +1,16 @@
-<mat-spinner *ngIf="isLoading"></mat-spinner>
-<mat-list *ngIf="!isLoading">
-  <mat-list-item *ngFor="let grade of grades">
-    <p>{{ grade.gradeNumber }} "{{ grade.gradeLiter }}"</p>
-    <span class="spacer"></span>
-    <a *ngIf="adminIsAuthenticated" mat-button color="primary" [routerLink]="['/schedule', grade.id]">OPEN SCHEDULE</a>
-    <a *ngIf="adminIsAuthenticated" mat-button color="primary" [routerLink]="['/schedule/create', grade.id]">EDIT SCHEDULE</a>
-    <a *ngIf="adminIsAuthenticated" mat-button color="primary" [routerLink]="['/grades/edit', grade.id]">EDIT</a>
-    <button *ngIf="adminIsAuthenticated" mat-button color="warn" (click)="onDelete(grade.id)">DELETE</button>
-    <mat-divider [inset]="true"></mat-divider>
-  </mat-list-item>
-</mat-list>
-<p class="info-text mat-body-1" *ngIf="grades.length <= 0 && !isLoading">No grades added yet!</p>
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <mat-list *ngIf="!isLoading">
+    <mat-list-item *ngFor="let grade of grades">
+      <p>{{ grade.gradeNumber }} "{{ grade.gradeLiter }}"</p>
+      <span class="spacer"></span>
+      <a mat-button color="primary" [routerLink]="['/schedule', grade.id]">OPEN SCHEDULE</a>
+      <a *ngIf="adminIsAuthenticated" mat-button color="primary" [routerLink]="['/schedule/create', grade.id]">EDIT SCHEDULE</a>
+      <a *ngIf="adminIsAuthenticated" mat-button color="primary" [routerLink]="['/grades/edit', grade.id]">EDIT</a>
+      <button *ngIf="adminIsAuthenticated" mat-button color="warn" (click)="onDelete(grade.id)">DELETE</button>
+      <mat-divider [inset]="true"></mat-divider>
+    </mat-list-item>
+  </mat-list>
+  <p class="info-text mat-body-1" *ngIf="grades.length <= 0 && !isLoading">No grades added yet!</p>
+</mat-card>
 
