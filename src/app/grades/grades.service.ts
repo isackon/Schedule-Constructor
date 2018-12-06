@@ -28,8 +28,8 @@ export class GradesService {
         map(gradeData => {
           return gradeData.grades.map(grade => {
             return {
-              gradeNumber: grade.gradeName,
-              gradeLiter: grade.gradeDepartment,
+              gradeNumber: grade.gradeNumber,
+              gradeLiter: grade.gradeLiter,
               id: grade._id
             };
           });
